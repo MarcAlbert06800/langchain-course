@@ -35,8 +35,8 @@ def main():
 
     summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
 
-    #llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0)
-    llm = ChatOllama(model="phi3:latest", temperature=0)
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite", temperature=0)
+    #llm = ChatOllama(model="phi3:latest", temperature=0)
     chain = summary_prompt_template | llm
     response = chain.invoke(input={"information": information})
     
